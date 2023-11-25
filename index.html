@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Document</title>
+    <style>
+        body  {
+            max-width: 1440px;
+            width: 100%;
+            height: 632px;
+            margin: 0;
+        }
+        .maincontainer {
+            width: 100%;
+            height: 632px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .maincontainer  video {
+            height: 632px;
+        }
+        .container {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 632px;
+            background-color: rgba(46, 45, 45, 0.548);
+        }
+        .btns {
+            /* margin: 0px 5px;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(213, 239, 239);
+            width: 100px; */
+            text-align: center;
+            position: relative;
+            top: -40px;
+            left: -500px;
+        }
+        .btn {
+            width: 50%;
+            padding: 7px 0px;
+            cursor: pointer;
+        }
+        #slider {
+            width: 90px;
+            padding: 7px;
+            background-color: white;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        
+        /* .play_back {
+            background-color: rgb(56, 56, 59);
+            color: white;
+            border-radius: 0px 15px 15px 0px;
+        }
+        .pause_back {
+            background-color: rgb(56, 56, 59);
+            color: white;
+            border-radius: 15px 0px 0px 15px;
+        } */
+
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+            <video src="video.mp4" autoplay muted loop></video>
+            <div class="container">
+                <h2>Video Project</h2>
+            </div>
+    
+        <div class="btns">
+            <!-- normal button -->
+            <!-- <div  class="btn" id="play_vid">Play</div>
+            <div  class="btn" id="pause_vid">Pause</div> -->
+            <!-- Toggle-button -->
+            <span id="slider"><i class="fa-solid fa-circle fa-lg" style="color: #46c22e;"></i>Pause </span>
+        </div>
+    </div>
+
+    <script>
+        let vid = document.querySelector('video');
+        //using play() method
+
+        // let btns = document.querySelectorAll('.btn');
+
+        // btns.forEach((btn,index) => {
+        //     btn.addEventListener('click',() => {
+        //         if (index == 0) {
+        //             vid.play();
+        //             btn.classList.add('play_back')
+        //             btns[1].classList.remove('pause_back')
+        //         }
+        //         else {
+        //             vid.pause();
+        //             btns[0].classList.remove('play_back')
+        //             btn.classList.add('pause_back')
+        //         }
+        //     });
+        // });
+        
+        //using playbackRate
+
+        let btn = document.getElementById("slider");
+            btn.addEventListener("click", () => {
+                console.log(vid.playbackRate);
+                if (vid.playbackRate > 0) {
+                    vid.playbackRate = 0;
+                    btn.innerHTML = ' Play  <i class="fa-solid fa-circle fa-lg" style="color: #d73333;"></i> ';
+                }
+                else {
+                    vid.playbackRate = 1;
+                    btn.innerHTML = ' <i class="fa-solid fa-circle fa-lg" style="color: #46c22e;"></i> Pause ';
+                }
+            });
+
+    </script>
+</body>
+</html>
